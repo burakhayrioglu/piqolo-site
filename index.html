@@ -91,6 +91,19 @@ nav.links a:hover { color: var(--green); }
 .btn-soft { background: var(--mint); color: var(--green-dark); }
 .btn-small { min-height: 40px; padding: 0 18px; font-size: .92rem; }
 @media (max-width: 820px) { nav.links { display: none; }  }
+/* Giriş / Kayıt düğmeleri ve telefon menüsü */
+.auth { display: flex; gap: 8px; flex-shrink: 0; }
+details.menu { display: none; position: relative; }
+details.menu summary { list-style: none; width: 44px; height: 44px; border-radius: 12px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; cursor: pointer; background: var(--mint); }
+details.menu summary::-webkit-details-marker { display: none; }
+details.menu summary span { width: 18px; height: 2px; border-radius: 2px; background: var(--green-dark); }
+details.menu nav { position: absolute; right: 0; top: 52px; min-width: 230px; display: flex; flex-direction: column; padding: 8px; background: var(--surface); border: 1px solid var(--line); border-radius: 16px; box-shadow: 0 16px 40px rgba(107,91,58,.18); }
+details.menu nav a { min-height: 44px; display: flex; align-items: center; padding: 0 12px; border-radius: 10px; text-decoration: none; color: var(--text); font-weight: 700; }
+details.menu nav a:hover { background: var(--mint); }
+details.menu hr { border: 0; border-top: 1px solid var(--line); margin: 6px 4px; width: auto; }
+@media (max-width: 1100px) { .top .soon { display: none; } }
+@media (max-width: 820px) { .auth { margin-left: auto; } details.menu { display: block; } .top .wrap { gap: 10px; } }
+@media (max-width: 400px) { .auth .btn-soft { display: none; } }
 
 /* Kahraman */
 .hero { padding-block: clamp(40px, 7vw, 80px) clamp(48px, 8vw, 96px); }
@@ -314,6 +327,25 @@ footer a:hover { color: var(--green); }
       <a href="#sss">Sorular</a>
     </nav>
     <span class="soon" role="status"><i aria-hidden="true"></i>Çok Yakında Yayında</span>
+    <div class="auth">
+      <a class="btn btn-soft btn-small" href="app/start/?mode=signIn">Giriş Yap</a>
+      <a class="btn btn-green btn-small" href="app/start/?mode=signUp">Kayıt Ol</a>
+    </div>
+    <details class="menu">
+      <summary aria-label="Menü"><span></span><span></span><span></span></summary>
+      <nav aria-label="Menü">
+        <a href="#danisan">Danışanlar için</a>
+        <a href="#diyetisyen">Diyetisyenler için</a>
+        <a href="#ozellikler">Özellikler</a>
+        <a href="#fiyatlar">Fiyatlar</a>
+        <a href="#sss">Sorular</a>
+        <hr>
+        <a href="app/start/?mode=signIn">Giriş Yap</a>
+        <a href="app/start/?mode=signUp"><b>Kayıt Ol</b></a>
+        <a href="app/demo/?as=client">Danışan olarak dene</a>
+        <a href="app/demo/?as=dietitian">Diyetisyen olarak dene</a>
+      </nav>
+    </details>
   </div>
 </header>
 
@@ -328,7 +360,7 @@ footer a:hover { color: var(--green); }
           <a class="btn btn-green" href="app/demo/?as=client">Danışan olarak dene</a>
           <a class="btn btn-soft" href="app/demo/?as=dietitian">Diyetisyen panelini dene</a>
         </div>
-        <p class="store-note">Tarayıcında hemen dene, kayıt gerekmez: örnek verilerle deneme modu açılır. iPhone ve Android uygulamaları mağazalarda yakında.</p>
+        <p class="store-note">Tarayıcında hemen dene, kayıt gerekmez: örnek verilerle deneme modu açılır. Kendi hesabın için sağ üstten Kayıt Ol. iPhone ve Android uygulamaları mağazalarda yakında.</p>
         <div class="hero-facts">
           <span><b class="num">1000+</b> hazır besin</span>
           <span><b>Reklam yok</b></span>
@@ -694,7 +726,8 @@ footer a:hover { color: var(--green); }
       <div class="hero-ctas" style="justify-content:center">
         <a class="btn btn-green" href="app/demo/?as=client" style="background: var(--surface); color: var(--green-dark)">Danışan olarak dene</a>
         <a class="btn btn-soft" href="app/demo/?as=dietitian">Diyetisyen olarak dene</a>
-        <a class="btn btn-soft" href="app/sign-in/">Giriş sayfası</a>
+        <a class="btn btn-soft" href="app/start/?mode=signIn">Giriş Yap</a>
+        <a class="btn btn-soft" href="app/start/?mode=signUp">Kayıt Ol</a>
       </div>
       <p class="lead" style="font-size:.95rem">Deneme modundaki her şey yalnızca senin tarayıcında saklanır; gerçek kişi ya da sağlık verisi yoktur.</p>
     </div>
